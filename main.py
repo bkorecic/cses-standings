@@ -8,15 +8,14 @@ import requests
 import copy
 import argparse
 
+package_directory = os.path.dirname(os.path.abspath(__file__))
+
 env = Environment(
-    loader=FileSystemLoader(searchpath='./'),
-    autoescape=select_autoescape()
+    loader=FileSystemLoader(searchpath=package_directory),
+    autoescape=True
 )
 
-package_directory = os.path.dirname(os.path.abspath(__file__))
-template_file = os.path.join(package_directory, 'template.html')
-
-template = env.get_template(template_file)
+template = env.get_template('template.html')
 
 
 def init_argparse():
