@@ -140,3 +140,8 @@ cython_debug/
 # Other
 .idea/
 .vscode/
+
+# Testing
+standings.html
+users.txt
+

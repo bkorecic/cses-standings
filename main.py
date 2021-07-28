@@ -3,6 +3,7 @@ from status import Status, status_classes
 from utils import get_task_id_from_url
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from scraper import get_user_tasks, get_chapters
+import os
 import requests
 import copy
 import argparse
@@ -12,7 +13,10 @@ env = Environment(
     autoescape=select_autoescape()
 )
 
-template = env.get_template('template.html')
+package_directory = os.path.dirname(os.path.abspath(__file__))
+template_file = os.path.join(package_directory, 'template.html')
+
+template = env.get_template(template_file)
 
 
 def init_argparse():
